@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "StyleSyncMobile",
-    "slug": "StyleSyncMobile",
+    "name": "StyleSync AI",
+    "slug": "stylesync-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,20 +10,46 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#6366F1"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "StyleSync needs camera access to analyze your clothing items with AI.",
+        "NSPhotoLibraryUsageDescription": "StyleSync needs photo library access to select clothing images for analysis."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#6366F1"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "StyleSync uses photos to analyze your clothing items with AI."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "StyleSync uses the camera to capture photos of your clothing for AI analysis."
+        }
+      ]
+    ]
   }
 }
